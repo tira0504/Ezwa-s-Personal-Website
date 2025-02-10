@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="shortcut icon" type="image/png" href="love-letter.png">
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Georgia, Serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, pink); /* Beautiful gradient */
+            color: black;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            color: black;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: black;
+        }
+
+        /* Navbar Styling */
+        .w3-bar {
+            letter-spacing: 4px;
+        }
+
+        .w3-bar-item {
+            padding: 10px 20px;
+        }
+
+        .w3-top .w3-bar-item {
+            font-size: 1rem;
+        }
+
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+        }
+
+        /* Instagram, Telegram, and TikTok Icons Section */
+        .social-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 100px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        .social-icons {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .social-icons img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+            margin: 0 10px;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .social-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .social-section a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #E1306C; /* Instagram's pink gradient color */
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-section a:hover {
+            background-color: #C13584; /* Instagram dark pink */
+            transform: scale(1.1);
+        }
+
+        /* Footer section */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 768px) {
+            .social-icons img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .social-section a {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-pink w3-padding w3-card">
+            <a href="index.html" class="w3-bar-item w3-button">♥ EZWA'S PERSONAL WEBSITE ♥</a>
+            <div class="w3-right w3-hide-small">
+                <a href="first.html" class="w3-bar-item w3-button">HOME</a>
+                <a href="biodata.html" class="w3-bar-item w3-button">BIODATA</a>
+                <a href="education.html" class="w3-bar-item w3-button">EDUCATION</a>
+                <a href="achievements.html" class="w3-bar-item w3-button">ACHIEVEMENTS</a>
+                <a href="gallery.html" class="w3-bar-item w3-button">OUR GALLERY</a>
+                <a href="contact.html" class="w3-bar-item w3-button">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Contact Her</h1>
+    <p>Feel free to reach out to her on Instagram, Telegram, or TikTok!</p>
+
+    <!-- Social Icons Carousel -->
+    <div class="social-section">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/frshaezwa/" target="_blank"><img src="insta.png" alt="Instagram Icon"></a>
+            <a href="https://t.me/+60 113 612 421 2" target="_blank"><img src="tele.png" alt="Telegram Icon"></a>
+            <a href="https://www.tiktok.com/@frrshaaa" target="_blank"><img src="tik-tok.png" alt="TikTok Icon"></a>
+        </div>
+        <div class="social-btn prev" onclick="moveSlide(-1)">&#10094;</div>
+        <div class="social-btn next" onclick="moveSlide(1)">&#10095;</div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Ezwa's Personal Website. All rights reserved.</p>
+    </div>
+
+    <script>
+        let index = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.social-icons img');
+            const totalSlides = slides.length;
+
+            // Update index
+            index = (index + step + totalSlides) % totalSlides;
+
+            // Apply transition effect to show current image
+            const gallery = document.querySelector('.social-icons');
+            gallery.style.transform = `translateX(-${index * 140}px)`; // Adjusting for image width
+        }
+    </script>
+</body>
+</html>

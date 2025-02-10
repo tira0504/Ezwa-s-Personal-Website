@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="shortcut icon" type="image/png" href="love-letter.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* Reset margins and paddings */
+        * {
+            margin: 50;
+            padding: 50;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: "Times New Roman", Georgia, Serif; 
+            background: #f3f4f6; 
+            color: #333; 
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: "Times New Roman";
+            margin: 100px 0 20px;
+            color: #e91e63;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            width: 100%;
+            background-color: #e91e63;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-logo {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-links a:hover {
+            text-decoration: underline;
+        }
+        /* Adjusted styles for consistent box sizes */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 80px auto;
+}
+
+.gallery-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 250px; /* Ensure all boxes are the same height */
+}
+
+.gallery-item img, .gallery-item video {
+    width: 100%;
+    height: 70%; /* Set media height to fit within the box */
+    object-fit: cover; /* Ensures the content fills the area without distortion */
+    border-radius: 8px 8px 0 0;
+}
+
+.description {
+    margin: 0;
+    padding: 10px;
+    color: #333;
+    font-size: 1.0rem;
+    text-align: center;
+    height: 30%; /* Adjust description space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Avoid text overflow */
+}
+
+        
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            animation: pop-in 0.3s ease-out;
+        }
+
+        .modal-content img, .modal-content video {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .close-btn:hover {
+            background: #c2185b;
+        }
+
+        @keyframes pop-in {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-pink w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button">♥ EZWA'S PERSONAL WEBSITE ♥</a>
+        <div class="w3-right w3-hide-small">
+            <a href="first.html" class="w3-bar-item w3-button">HOME</a>
+            <a href="biodata.html" class="w3-bar-item w3-button">BIODATA</a>
+            <a href="education.html" class="w3-bar-item w3-button">EDUCATION</a>
+            <a href="achievements.html" class="w3-bar-item w3-button">ACHIEVEMENTS</a>
+            <a href="gallery.html" class="w3-bar-item w3-button">OUR GALLERY</a>
+            <a href="contact.html" class="w3-bar-item w3-button">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+    <!-- Header -->
+    <h1>Echoes of Moments</h1>
+<!-- Grid Gallery -->
+<div class="gallery-container">
+    <!-- Video 1 -->
+    <div class="gallery-item" onclick="openModal('ezwavid.mp4', 'video')">
+        <video>
+            <source src="ezwavid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="description">Our TikTok together</p>
+    </div>
+
+    <!-- Image 1 -->
+    <div class="gallery-item" onclick="openModal('pic2.jpeg', 'image')">
+        <img src="pic2.jpeg" alt="College Photo 2">
+        <p class="description">Our first mirror selfie</p>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="gallery-item" onclick="openModal('ezwavid3.mp4', 'video')">
+        <video>
+            <source src="ezwavid3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="description">Camping<3 </p>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="gallery-item" onclick="openModal('pic3.jpeg', 'image')">
+        <img src="pic3.jpeg" alt="College Photo 3">
+        <p class="description">Joined Parasukma model together</p>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="gallery-item" onclick="openModal('gbr7.jpeg', 'image')">
+        <img src="gbr7.jpeg" alt="Pic 4">
+        <p class="description">Camping dump</p>
+    </div>
+
+    <!-- Image 4 -->
+    <div class="gallery-item" onclick="openModal('gbr5.jpeg', 'image')">
+        <img src="gbr5.jpeg" alt="Pic 5">
+        <p class="description">Watch Sukma Opening tgt</p>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="gallery-item" onclick="openModal('ezwavid2.mp4', 'video')">
+        <video>
+            <source src="ezwavid2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="description">GRWU in car.</p>
+    </div>
+
+    <!-- Image 5 -->
+    <div class="gallery-item" onclick="openModal('gbr6.jpeg', 'image')">
+        <img src="gbr6.jpeg" alt="Pic 6">
+        <p class="description">Photobooth together</p>
+    </div>
+
+    <!-- Image 6 -->
+    <div class="gallery-item" onclick="openModal('gbr3.jpeg', 'image')">
+        <img src="gbr3.jpeg" alt="Pic 7">
+        <p class="description">1 year old her</p>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="gallery-item" onclick="openModal('ezwavid4.mp4', 'video')">
+        <video>
+            <source src="ezwavid4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="description">Ezwa suprise for my birthday</p>
+    </div>
+
+    <!-- Image 7 -->
+    <div class="gallery-item" onclick="openModal('gbr2.jpeg', 'image')">
+        <img src="gbr2.jpeg" alt="Pic 8">
+        <p class="description">Hiking at Serapi</p>
+    </div>
+
+    <!-- Image 8 -->
+    <div class="gallery-item" onclick="openModal('gbr1.jpeg', 'image')">
+        <img src="gbr1.jpeg" alt="Pic 9">
+        <p class="description">Selfie dump</p>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <img id="modal-image" src="" alt="" style="display: none;">
+        <video id="modal-video" controls style="display: none;"></video>
+    </div>
+</div>
+
+<script>
+    function openModal(src, type) {
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalVideo = document.getElementById('modal-video');
+
+        if (type === 'image') {
+            modalImage.src = src;
+            modalImage.style.display = 'block';
+            modalVideo.style.display = 'none';
+        } else if (type === 'video') {
+            modalVideo.src = src;
+            modalVideo.style.display = 'block';
+            modalImage.style.display = 'none';
+        }
+
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalVideo = document.getElementById('modal-video');
+
+        modal.style.display = 'none';
+        modalImage.src = '';
+        modalVideo.src = '';
+    }
+</script>
+
+   
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <img id="modal-image" src="" alt="">
+            <video id="modal-video" controls></video>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalVideo = document.getElementById('modal-video');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const video = item.querySelector('video');
+
+                if (img) {
+                    modalImage.src = img.src;
+                    modalImage.style.display = 'block';
+                    modalVideo.style.display = 'none';
+                } else if (video) {
+                    modalVideo.src = video.querySelector('source').src;
+                    modalVideo.style.display = 'block';
+                    modalImage.style.display = 'none';
+                }
+
+                modal.style.display = 'flex';
+            });
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            modalImage.src = '';
+            modalVideo.src = '';
+        }
+    </script>
+
+</body>
+</html>

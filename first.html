@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezwa's Personal Website</title>
+    <link rel="shortcut icon" type="image/png" href="love-letter.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body { font-family: "Times New Roman", Georgia, Serif; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 2px;
+
+
+        }
+        /* Slideshow styles */
+        * { box-sizing: border-box; }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides { display: none; width: 100%; }
+        .slides img { width: 100%; height: auto; }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+        .dots { text-align: center; margin-top: 10px; }
+        .dots span {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: pink;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .dots span.active { background-color: black; }
+   
+ .content {
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #ff69b4;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+
+   </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-pink w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button">♥ EZWA'S PERSONAL WEBSITE ♥</a>
+        <div class="w3-right w3-hide-small">
+            <a href="first.html" class="w3-bar-item w3-button">HOME</a>
+            <a href="biodata.html" class="w3-bar-item w3-button">BIODATA</a>
+            <a href="education.html" class="w3-bar-item w3-button">EDUCATION</a>
+            <a href="achievements.html" class="w3-bar-item w3-button">ACHIEVEMENTS</a>
+            <a href="gallery.html" class="w3-bar-item w3-button">OUR GALLERY</a>
+            <a href="contact.html" class="w3-bar-item w3-button">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+<!-- Slideshow Section -->
+<div class="slideshow-container">
+    <div class="slides">
+        <img src="pic1.jpeg" alt="Image 1">
+    </div>
+    <div class="slides">
+        <img src="pic2.jpeg" alt="Image 2">
+    </div>
+    <div class="slides">
+        <img src="pic3.jpeg" alt="Image 3">
+    </div>
+
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<div class="dots">
+    <span onclick="currentSlide(1)" class="active"></span>
+    <span onclick="currentSlide(2)"></span>
+    <span onclick="currentSlide(3)"></span>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+    <h1><strong>Dedicated to Sharifah Ezwa Farisha</strong></h1>
+    <p>Having you as my best friend is one of the greatest blessings in my life. You’ve been my constant source of support, laughter, and strength, always standing by me through every challenge and every joy. Your kindness, loyalty, and genuine care for others inspire me every day. You have a way of making even the toughest days brighter, and I truly cherish all the memories we’ve created together. Thank you for being my confidant, my cheerleader, and the person I can always count on. Life wouldn’t be the same without you, and I’m so grateful to call you my best friend.</p>
+</div>
+
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        const slides = document.querySelectorAll('.slides');
+        const dots = document.querySelectorAll('.dots span');
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+
+        slides.forEach(slide => slide.style.display = 'none');
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('active');
+    }
+</script>
+
+</body>
+</html> 

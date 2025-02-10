@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="shortcut icon" type="image/png" href="love-letter.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Georgia, Serif;
+            margin: 0px;
+            font-size: 16px; /* Adjusted font size for body text */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 2px;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #e91e63;
+            font-size: 5.0rem; /* Adjusted font size for h1 */
+        }
+
+        h2 {
+            font-size: 4.5rem; /* Adjusted font size for h2 */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item h2 {
+            margin: 0;
+            font-size: 1.5rem; /* Adjusted font size for h2 inside education-item */
+            color: white;
+        }
+
+        .education-item span {
+            font-size: 1rem; /* Adjusted font size for span */
+            color: black;
+        }
+
+        .education-item p {
+            margin: 10px 0 0;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem; /* Adjusted font size for footer */
+            color: #777;
+        }
+
+        /* Image section */
+        .image-gallery {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .image-gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0s ease-in-out, box-shadow 0s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-gallery img:hover {
+            transform: translateX(10px) translateY(-10px) rotate(5deg) scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+ <!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-pink w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button">♥ EZWA'S PERSONAL WEBSITE ♥</a>
+        <div class="w3-right w3-hide-small">
+            <a href="first.html" class="w3-bar-item w3-button">HOME</a>
+            <a href="biodata.html" class="w3-bar-item w3-button">BIODATA</a>
+            <a href="education.html" class="w3-bar-item w3-button">EDUCATION</a>
+            <a href="achievements.html" class="w3-bar-item w3-button">ACHIEVEMENTS</a>
+            <a href="gallery.html" class="w3-bar-item w3-button">OUR GALLERY</a>
+            <a href="contact.html" class="w3-bar-item w3-button">CONTACT</a>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <h1>Ezwa's Education Journey</h1>
+
+        <div class="education-item">
+            <h2>Primary School</h2>
+            <span>2010 - 2016</span>
+            <p>Studied at Sekolah Kebangsaan RPR, Jalan Astana.</p>
+        </div>
+
+        <div class="education-item">
+            <h2>High School</h2>
+            <span>2017 - 2022</span>
+            <p>Graduated from Sekolah Menengah Kebangsaan Jalan Haji Abang Openg.</p>
+        </div>
+
+        <div class="education-item">
+            <h2>University</h2>
+            <span>2022 - Present</span>
+            <p>Currently pursuing a diploma in Information Management.</p>
+        </div>
+
+        <!-- Image Gallery with Swipe Transition -->
+        <div class="image-gallery" id="image-gallery">
+            <img src="edu1.jpeg" alt="Primary School">
+            <img src="edu2.jpg" alt="High School">
+            <img src="edu3.jpeg" alt="University">
+        </div>
+
+        <div class="footer">
+            2024 Her Education Journey♥
+        </div>
+    </div>
+
+    <script>
+        let index = 0;
+
+        // Function to move slide
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.image-gallery img');
+            const totalSlides = slides.length;
+
+            // Update index
+            index = (index + step + totalSlides) % totalSlides;
+
+            // Apply transition effect to show current image
+            const gallery = document.getElementById('image-gallery');
+            gallery.style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+</html>
